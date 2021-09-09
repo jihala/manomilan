@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:manomilan/screens/home_screen.dart';
+import 'package:manomilan/utils/color_file.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,19 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Jiwhala',
       theme: ThemeData(
-       
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Jiwhala'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
 
   final String title;
 
@@ -32,41 +34,66 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-   
+    Timer(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    });
+
+    var platformHeight = MediaQuery.of(context).size.height;
+    var platformWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
-       title: Text(widget.title),
-      ),
-      body: Center(
-       child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        backgroundColor: bgColor,
+        leadingWidth: 80.0,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: Image.asset("assets/images/logo.jpg"),
         ),
+        title: Text(widget.title),
+        actions: const <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(child: Text("Login")),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(child: Text("Register")),
+          )
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/back.jpg"),
+                fit: BoxFit.fitWidth)),
+        child: Container(
+            decoration: const BoxDecoration(
+              color: bgColor,
+            ),
+            height: platformHeight,
+            width: platformWidth,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "WELCOME",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 55.0,
+                    ),
+                  ),
+                  CircularProgressIndicator()
+                ],
+              ),
+            )),
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
