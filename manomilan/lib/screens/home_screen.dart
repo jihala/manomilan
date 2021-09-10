@@ -1,6 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:manomilan/screens/login.dart';
 import 'package:manomilan/utils/color_file.dart';
 import 'package:manomilan/utils/fetured_profile.dart';
 
@@ -26,15 +25,52 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Image.asset("assets/images/logo.jpg"),
         ),
         title: const Text("Home"),
-        actions: const <Widget>[
+        actions: <Widget>[
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Center(child: Text("Login")),
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                },
+                child: Center(
+                    child: RichText(
+                  text: const TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "Contact us",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                          )),
+                      WidgetSpan(
+                        child: Icon(Icons.headset_mic_outlined, size: 18),
+                      )
+                    ],
+                  ),
+                )),
+              )),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+                child: RichText(
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                      text: "My profile",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                      )),
+                  WidgetSpan(
+                    child: Icon(Icons.account_circle_outlined, size: 18),
+                  )
+                ],
+              ),
+            )),
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Center(child: Text("Register")),
-          )
         ],
       ),
       body: Container(
@@ -61,28 +97,32 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(5.0),
                         height: platformHeight / 2.3,
                         width: platformWidth / 2,
-                        child: Image.asset("assets/images/logo.jpg",
+                        child: Image.network(
+                            "https://thumbs.dreamstime.com/b/close-up-shot-kankan-halkund-close-up-shot-kankan-halkund-thread-wrist-bride-groom-performing-118556966.jpg",
                             fit: BoxFit.cover),
                       ),
                       Container(
                         padding: const EdgeInsets.all(5.0),
                         height: platformHeight / 2.3,
                         width: platformWidth / 2,
-                        child: Image.asset("assets/images/logo.jpg",
+                        child: Image.network(
+                            "https://thumbs.dreamstime.com/b/hindu-traditional-wedding-ceremony-india-hindu-traditional-wedding-ceremony-india-marathi-wedding-vidhi-maharashtra-182428316.jpg",
                             fit: BoxFit.cover),
                       ),
                       Container(
                         padding: const EdgeInsets.all(5.0),
                         height: platformHeight / 2.3,
                         width: platformWidth / 2,
-                        child: Image.asset("assets/images/logo.jpg",
+                        child: Image.network(
+                            "https://media.weddingz.in/images/57d8fd1fbee7364a31f287f20e821041/A-Simple-Guide-to-Decode-Maharashtrian-Weddings-8.jpg",
                             fit: BoxFit.cover),
                       ),
                       Container(
                         padding: const EdgeInsets.all(5.0),
                         height: platformHeight / 2.3,
                         width: platformWidth / 2,
-                        child: Image.asset("assets/images/logo.jpg",
+                        child: Image.network(
+                            "http://1.bp.blogspot.com/-lMPcYLOo_ag/VH1mKzyTj2I/AAAAAAAAAAY/4qrCB4v80pE/s1600/2887027_medium.JPG",
                             fit: BoxFit.cover),
                       ),
                     ],
