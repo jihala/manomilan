@@ -16,14 +16,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -64,14 +64,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -112,14 +112,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -160,14 +160,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -208,14 +208,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -256,14 +256,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -304,14 +304,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -352,14 +352,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,
@@ -400,14 +400,14 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
         Container(
           padding: const EdgeInsets.all(10.0),
           height: 155,
-          width: 210,
+          width: 220,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  height: 110,
-                  width: 210,
+                  height: 120,
+                  width: 220,
                   child: Image.network(
                     "https://image.shutterstock.com/image-photo/maharashtrian-man-wearing-traditional-kurta-260nw-1371861761.jpg",
                     fit: BoxFit.fitWidth,

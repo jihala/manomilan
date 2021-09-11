@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:manomilan/apis/login.dart';
+import 'package:manomilan/models/user.dart';
 import 'package:manomilan/screens/home_screen.dart';
 import 'package:manomilan/utils/color_file.dart';
 
@@ -10,8 +12,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String email = "hkdjob08@gmail.com";
+  String password = "123456";
   @override
   Widget build(BuildContext context) {
+    var platformHeight = MediaQuery.of(context).size.height;
+    var platformWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bgColor,
@@ -26,10 +33,10 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const HomeScreen()));
                 },
                 child: const Center(child: Text("Home"))),
           ),
@@ -42,6 +49,96 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Center(child: Text("My profie")),
           ),
         ],
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/back.jpg"),
+                fit: BoxFit.cover)),
+        child: Container(
+            decoration: const BoxDecoration(
+              color: bgColor,
+            ),
+            height: platformHeight,
+            width: platformWidth,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      color: Colors.white.withOpacity(0.1),
+                      height: 50,
+                      width: platformWidth / 3,
+                      child: const TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Email',
+                            hintText: 'Enter valid email id as abc@gmail.com'),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 15, bottom: 0),
+                    //padding: EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      color: Colors.white.withOpacity(0.1),
+                      height: 50,
+                      width: platformWidth / 3,
+                      child: const TextField(
+                        style: TextStyle(color: Colors.white),
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Password',
+                            hintText: 'Enter secure password'),
+                      ),
+                    ),
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      //TODO FORGOT PASSWORD SCREEN GOES HERE
+                    },
+                    child: const Text(
+                      'Forgot Password',
+                      style: TextStyle(color: Colors.blue, fontSize: 15),
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    width: platformWidth / 3,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const HomeScreen()));
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: const Text('New User? Create Account',
+                        style: TextStyle(color: Colors.white, fontSize: 20)),
+                  )
+                ],
+              ),
+            )),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:manomilan/screens/home_screen.dart';
+import 'package:manomilan/screens/login.dart';
 import 'package:manomilan/utils/color_file.dart';
 
 void main() {
@@ -34,12 +35,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isLogedIn = false;
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
+      isLogedIn
+          ? Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            )
+          : Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
     });
 
     var platformHeight = MediaQuery.of(context).size.height;
@@ -51,7 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
         leadingWidth: 80.0,
         leading: Padding(
           padding: const EdgeInsets.only(left: 10.0),
-          child: Image.asset("assets/images/logo.jpg"),
+          child: Image.asset(
+            "assets/images/logo.jpg",
+            fit: BoxFit.cover,
+          ),
         ),
         title: Text(widget.title),
         actions: const <Widget>[
@@ -69,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/back.jpg"),
-                fit: BoxFit.fitWidth)),
+                fit: BoxFit.cover)),
         child: Container(
             decoration: const BoxDecoration(
               color: bgColor,
@@ -93,7 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             )),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
