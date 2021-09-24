@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: FlatButton(
                       onPressed: () {
                         Fluttertoast.showToast(
-                            msg: "Email have been sent to your email address",
+                            msg: "Sending Email",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
