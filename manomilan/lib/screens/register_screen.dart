@@ -99,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 10.0) //                 <--- border radius here
                             ),
                       ),
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: TextFormField(
                         controller: nameController,
                         style: const TextStyle(color: Colors.white),
@@ -129,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 10.0) //                 <--- border radius here
                             ),
                       ),
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: TextFormField(
                         controller: mobileController,
                         style: const TextStyle(color: Colors.white),
@@ -159,7 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 10.0) //                 <--- border radius here
                             ),
                       ),
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: TextFormField(
                         controller: emailController,
                         style: const TextStyle(color: Colors.white),
@@ -190,7 +190,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                       ),
                       height: 50,
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: TextFormField(
                         controller: passController,
                         style: const TextStyle(color: Colors.white),
@@ -221,7 +221,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                       ),
                       height: 155,
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: dateTime(context),
                     ),
                   ),
@@ -238,8 +238,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 10.0) //                 <--- border radius here
                             ),
                       ),
-                      height: 90,
-                      width: platformWidth / 3,
+                      height: 100,
+                      width: platformWidth / 2,
                       child: RadioGroup(context),
                     ),
                   ),
@@ -247,7 +247,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     padding: const EdgeInsets.only(top: 15),
                     child: Container(
                       height: 50,
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20)),
@@ -344,7 +344,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   style: const TextStyle(
                                       color: Colors.teal,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18.0),
+                                      fontSize: 15.0),
                                 ),
                               ],
                             ),
@@ -356,7 +356,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         style: TextStyle(
                             color: Colors.teal,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18.0),
+                            fontSize: 15.0),
                       ),
                     ],
                   ),
@@ -397,7 +397,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               children: <Widget>[
                                 const Icon(
                                   Icons.access_time,
-                                  size: 18.0,
+                                  size: 15.0,
                                   color: Colors.teal,
                                 ),
                                 Text(
@@ -405,7 +405,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   style: const TextStyle(
                                       color: Colors.teal,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18.0),
+                                      fontSize: 15.0),
                                 ),
                               ],
                             ),
@@ -435,7 +435,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Column(
       children: <Widget>[
         Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: EdgeInsets.all(8.0),
             child: Text(
               'Selected Gender Item = ' + radioButtonItem,
               style: const TextStyle(fontSize: 18, color: Colors.blue),

@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:manomilan/screens/profile_screen.dart';
 
 import 'package:manomilan/screens/ui_fake.dart' if (dart.library.html) 'dart:ui'
@@ -29,57 +27,33 @@ class _WebpaymentState extends State<Webpayment> {
   _WebpaymentState(this.email, this.name, this.mobile);
 
   IFrameElement _element = IFrameElement();
-  var _test_element = null;
+  var _test_element;
 
   @override
   Widget build(BuildContext context) {
-    if (_test_element == null) {
-      ui.platformViewRegistry.registerViewFactory("rzp-html", (int viewId) {
-        window.onMessage.forEach((element) {
-          print('window callback: ${window.onMessage}');
-          setState(() {
-            _test_element = element;
-          });
-          print('Event Received in callback: ${element.data}');
-          print('test callback: ${_test_element.data}');
-          if (element.data == 'MODAL_CLOSED') {
-            Fluttertoast.showToast(
-                msg: "PAYMENT MODAL CLOSED",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 16.0);
-
-            Navigator.pop(context);
-          } else if (element.data == 'SUCCESS') {
-            print('PAYMENT SUCCESSFULL!!!!!!!');
-            Fluttertoast.showToast(
-                msg: "PAYMENT SUCCESSFULL",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 16.0);
-          }
-          //  FirebaseFirestore.instance.collection('Products').doc('iphone12').update({
-          //     'payment':"Done"
-          //  });
+    ui.platformViewRegistry.registerViewFactory("rzp-html", (int viewId) {
+      window.onMessage.forEach((element) {
+        setState(() {
+          _test_element = element;
         });
-
-        _element.src =
-            'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
-        _element.style.border = 'none';
-
-        return _element;
+        print('Event Received in callback: ${element.data}');
+        print('test callback: ${_test_element.data}');
+        if (element.data == 'MODAL_CLOSED') {
+          Navigator.pop(context);
+        } else if (element.data == 'SUCCESS') {
+          print('PAYMENT SUCCESSFULL!!!!!!!');
+        }
+        //  FirebaseFirestore.instance.collection('Products').doc('iphone12').update({
+        //     'payment':"Done"
+        //  });
       });
-    } else if (_test_element.data == 'SUCCESS') {
-      print('change screen!');
-      pushScreen(context);
-    }
 
+      _element.src =
+          'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
+      _element.style.border = 'none';
+
+      return _element;
+    });
     return Scaffold(
         appBar: AppBar(
           backgroundColor: bgColor,
@@ -97,6 +71,8 @@ class _WebpaymentState extends State<Webpayment> {
                     image: AssetImage("assets/images/back.jpg"),
                     fit: BoxFit.cover)),
             child: Container(
+                width: 400,
+                height: 300,
                 decoration: const BoxDecoration(
                   color: bgColor,
                 ),
@@ -106,24 +82,18 @@ class _WebpaymentState extends State<Webpayment> {
   }
 }
 
-Widget pushScreen(BuildContext context) {
-  Timer(const Duration(seconds: 3), () {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const ProfileScreen()),
-    );
-  });
-  return const Center(
-    child: CircularProgressIndicator(
-      color: Colors.blue,
-    ),
-  );
-}
 
 
-
+//  Navigator.push(context,
+              // MaterialPageRoute(builder: (context) => {const ProfieScreen()}));
        
 
-//  
+//  if (element.data == 'MODAL_CLOSED') {
+        //   Navigator.pop(context);
+        // } else if (element.data == 'SUCCESS') {
+        //   print('PAYMENT SUCCESSFULL!!!!!!!');
+        // }
+
 
 
 

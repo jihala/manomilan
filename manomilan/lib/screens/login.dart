@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:manomilan/apis/login.dart';
 import 'package:manomilan/models/user.dart';
 import 'package:manomilan/screens/home_screen.dart';
@@ -67,6 +68,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 15.0, bottom: 15.0),
+                    child: Text(
+                      "Welcome",
+                      style: TextStyle(color: Colors.white, fontSize: 55.0),
+                    ),
+                  ),
                   Padding(
                     //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                     padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -122,7 +131,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: FlatButton(
                       onPressed: () {
-                        //TODO FORGOT PASSWORD SCREEN GOES HERE
+                        Fluttertoast.showToast(
+                            msg: "Email have been sent",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
                       },
                       child: const Text(
                         'Forgot Password',
