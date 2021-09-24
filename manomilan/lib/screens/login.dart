@@ -132,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Container(
                     height: 50,
-                    width: platformWidth / 3,
+                    width: platformWidth / 2,
                     decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(20)),
@@ -154,15 +154,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const RegisterScreen()));
-                      },
-                      child: const Text('New User? Create Account',
-                          style: TextStyle(color: Colors.white, fontSize: 20)),
+                    child: Container(
+                      height: 50,
+                      width: platformWidth / 2,
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const RegisterScreen()));
+                        },
+                        child: const Text('New User? Create Account',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 15)),
+                      ),
                     ),
                   )
                 ],
