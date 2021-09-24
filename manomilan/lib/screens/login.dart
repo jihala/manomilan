@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manomilan/apis/login.dart';
 import 'package:manomilan/models/user.dart';
 import 'package:manomilan/screens/home_screen.dart';
+import 'package:manomilan/screens/register_screen.dart';
 import 'package:manomilan/utils/color_file.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -70,14 +71,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Container(
-                      color: Colors.white.withOpacity(0.1),
                       height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        border:
+                            Border.all(color: Colors.white.withOpacity(0.1)),
+                        borderRadius: const BorderRadius.all(Radius.circular(
+                                10.0) //                 <--- border radius here
+                            ),
+                      ),
                       width: platformWidth / 3,
                       child: const TextField(
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             labelText: 'Email',
+                            labelStyle: TextStyle(color: Colors.blue),
                             hintText: 'Enter valid email id as abc@gmail.com'),
                       ),
                     ),
@@ -87,7 +97,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     //padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Container(
-                      color: Colors.white.withOpacity(0.1),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        border:
+                            Border.all(color: Colors.white.withOpacity(0.1)),
+                        borderRadius: const BorderRadius.all(Radius.circular(
+                                10.0) //                 <--- border radius here
+                            ),
+                      ),
                       height: 50,
                       width: platformWidth / 3,
                       child: const TextField(
@@ -96,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.blue),
                             hintText: 'Enter secure password'),
                       ),
                     ),
@@ -132,7 +150,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 100,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                     Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const RegisterScreen()));
+                      },
                     child: const Text('New User? Create Account',
                         style: TextStyle(color: Colors.white, fontSize: 20)),
                   )

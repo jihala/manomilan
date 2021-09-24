@@ -14,6 +14,7 @@ class _FeaturedProfileState extends State<FeaturedProfile> {
       scrollDirection: Axis.horizontal,
       children: [
         Container(
+          color: Colors.white.withOpacity(0.3),
           padding: const EdgeInsets.all(10.0),
           height: 155,
           width: 220,

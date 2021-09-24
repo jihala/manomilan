@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Jiwhala',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.blue,
+          backgroundColor: Colors.white.withOpacity(0.3)),
       home: const MyHomePage(title: 'Jiwhala'),
     );
   }
