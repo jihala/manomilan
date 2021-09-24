@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 10.0) //                 <--- border radius here
                             ),
                       ),
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: const TextField(
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                       ),
                       height: 50,
-                      width: platformWidth / 3,
+                      width: platformWidth / 2,
                       child: const TextField(
                         style: TextStyle(color: Colors.white),
                         obscureText: true,
@@ -118,13 +118,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  FlatButton(
-                    onPressed: () {
-                      //TODO FORGOT PASSWORD SCREEN GOES HERE
-                    },
-                    child: const Text(
-                      'Forgot Password',
-                      style: TextStyle(color: Colors.blue, fontSize: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FlatButton(
+                      onPressed: () {
+                        //TODO FORGOT PASSWORD SCREEN GOES HERE
+                      },
+                      child: const Text(
+                        'Forgot Password',
+                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                      ),
                     ),
                   ),
                   Container(
@@ -147,17 +150,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 100,
+                    height: 50,
                   ),
-                  InkWell(
-                    onTap: () {
-                     Navigator.push(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (_) => const RegisterScreen()));
                       },
-                    child: const Text('New User? Create Account',
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
+                      child: const Text('New User? Create Account',
+                          style: TextStyle(color: Colors.white, fontSize: 20)),
+                    ),
                   )
                 ],
               ),
