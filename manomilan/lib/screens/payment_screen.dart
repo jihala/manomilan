@@ -48,8 +48,11 @@ class _WebpaymentState extends State<Webpayment> {
         //  });
       });
 
-      _element.src =
-          'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
+      _element.height = '4000';
+      _element.width = '700';
+
+      _element.src = "https://rzp.io/l/yXo0p7HtW";
+      // 'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
       _element.style.border = 'none';
 
       return _element;
@@ -71,8 +74,8 @@ class _WebpaymentState extends State<Webpayment> {
                     image: AssetImage("assets/images/back.jpg"),
                     fit: BoxFit.cover)),
             child: Container(
-                width: 400,
-                height: 300,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 decoration: const BoxDecoration(
                   color: bgColor,
                 ),
