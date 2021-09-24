@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -22,11 +23,18 @@ class Webpayment extends StatefulWidget {
 }
 
 class _WebpaymentState extends State<Webpayment> {
-  var url;
   @override
   void initState() {
-    url =
-        'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
+    try {
+      loadWebView();
+      print("loading view");
+      const HtmlElementView(
+        viewType: 'rzp-html',
+      );
+      print(" view called");
+    } catch (e) {
+      print("error>>>> " + e.toString());
+    }
     super.initState();
   }
 
@@ -40,40 +48,16 @@ class _WebpaymentState extends State<Webpayment> {
   IFrameElement _element = IFrameElement();
   var _test_element;
 
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
-    try {
-      ui.platformViewRegistry.registerViewFactory("rzp-html", (int viewId) {
-        window.onMessage.forEach((element) {
-          setState(() {
-            _test_element = element;
-          });
-          print('Event Received in callback: ${element.data}');
-          print('test callback: ${_test_element.data}');
-          if (element.data == 'MODAL_CLOSED') {
-            Navigator.pop(context);
-          } else if (element.data == 'SUCCESS') {
-            print('PAYMENT SUCCESSFULL!!!!!!!');
-          }
-          //  FirebaseFirestore.instance.collection('Products').doc('iphone12').update({
-          //     'payment':"Done"
-          //  });
-        });
-
-        _element.height = '4000';
-        _element.width = '700';
-
-        _element.src = url;
-        // "https://rzp.io/l/yXo0p7HtW";
-        // 'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
-
-        _element.style.border = 'none';
-
-        return _element;
+    Timer(const Duration(seconds: 5), () {
+      print("time up");
+      setState(() {
+        isLoading = true;
       });
-    } catch (error) {
-      print(error);
-    }
+    });
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bgColor,
@@ -100,9 +84,13 @@ class _WebpaymentState extends State<Webpayment> {
                 child: Container(
                     width: MediaQuery.of(context).size.width / 1.1,
                     height: MediaQuery.of(context).size.height / 1.1,
-                    child: const HtmlElementView(
-                      viewType: 'rzp-html',
-                    )),
+                    child: isLoading
+                        ? const htmlView()
+                        : const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.blue,
+                            ),
+                          )),
               )),
         );
       }),
@@ -113,6 +101,7 @@ class _WebpaymentState extends State<Webpayment> {
   Widget FloatingButtonAction(BuildContext context) {
     return FloatingActionButton.extended(
       onPressed: () {
+        loadWebView();
         Fluttertoast.showToast(
             msg: "Email have been sent to your email address",
             toastLength: Toast.LENGTH_SHORT,
@@ -129,9 +118,53 @@ class _WebpaymentState extends State<Webpayment> {
       backgroundColor: Colors.pink,
     );
   }
+
+  void loadWebView() {
+    try {
+      ui.platformViewRegistry.registerViewFactory("rzp-html", (int viewId) {
+        window.onMessage.forEach((element) {
+          print('Event Received in callback: ${element.data}');
+          if (element.data == 'MODAL_CLOSED') {
+            Navigator.pop(context);
+          } else if (element.data == 'SUCCESS') {
+            print('PAYMENT SUCCESSFULL!!!!!!!');
+          }
+          //  FirebaseFirestore.instance.collection('Products').doc('iphone12').update({
+          //     'payment':"Done"
+          //  });
+        });
+
+        _element.height = '4000';
+        _element.width = '700';
+
+        _element.src =
+            'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
+        // "https://rzp.io/l/yXo0p7HtW";
+
+        _element.style.border = 'none';
+
+        return _element;
+      });
+    } catch (error) {
+      print("error>>>> " + error.toString());
+    }
+  }
 }
 
+class htmlView extends StatelessWidget {
+  const htmlView({Key? key}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width / 1.2,
+      height: MediaQuery.of(context).size.height / 1.2,
+      child: const HtmlElementView(
+        viewType: 'rzp-html',
+      ),
+    );
+  }
+}
 
 
        

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:manomilan/apis/login.dart';
@@ -16,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String email = "hkdjob08@gmail.com";
   String password = "123456";
+
   @override
   Widget build(BuildContext context) {
     var platformHeight = MediaQuery.of(context).size.height;
@@ -132,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: FlatButton(
                       onPressed: () {
                         Fluttertoast.showToast(
-                            msg: "Sending Email",
+                            msg: "Email Sent please check",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
