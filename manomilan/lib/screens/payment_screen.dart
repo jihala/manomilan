@@ -138,8 +138,8 @@ class _WebpaymentState extends State<Webpayment> {
         _element.width = '700';
 
         _element.src =
-            'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
-        // "https://rzp.io/l/yXo0p7HtW";
+            // 'assets/payments.html?name=$name&price=$price&email=$email&mobile=$mobile';
+            "https://rzp.io/l/yXo0p7HtW?name=$name&price=$price&email=$email&mobile=$mobile";
 
         _element.style.border = 'none';
 

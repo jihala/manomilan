@@ -261,13 +261,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           });
 
                           // saveData();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => Webpayment(
-                                      name: name,
-                                      email: email,
-                                      mobile: mobile)));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (_) => Webpayment(
+                          //             name: name,
+                          //             email: email,
+                          //             mobile: mobile)));
                         },
                         child: const Text(
                           'Register',

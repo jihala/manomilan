@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:manomilan/apis/login.dart';
 import 'package:manomilan/models/user.dart';
 import 'package:manomilan/screens/home_screen.dart';
 import 'package:manomilan/screens/register_screen.dart';
+import 'package:manomilan/services/firebase_auth_service.dart';
 import 'package:manomilan/utils/color_file.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,8 +16,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  String email = "hkdjob08@gmail.com";
-  String password = "123456";
+  late String email;
+  late String password;
+
+  final formKey = GlobalKey<FormState>();
+
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -93,9 +98,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                       ),
                       width: platformWidth / 2,
-                      child: const TextField(
-                        style: TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
+                      child: TextFormField(
+                        controller: emailController,
+                        validator: (value) =>
+                            value!.isEmpty ? "Email is required" : null,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.white)),
                             labelText: 'Email',
@@ -119,10 +127,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       height: 50,
                       width: platformWidth / 2,
-                      child: const TextField(
-                        style: TextStyle(color: Colors.white),
+                      child: TextFormField(
+                        controller: passController,
+                        validator: (value) =>
+                            value!.isEmpty ? "Password is required" : null,
+                        style: const TextStyle(color: Colors.white),
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Password',
                             labelStyle: TextStyle(color: Colors.blue),
@@ -155,12 +166,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(20)),
-                    child: FlatButton(
+                    child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const HomeScreen()));
+                        setState(() {
+                          email = emailController.text;
+                          password = passController.text;
+                        });
+
+                        Fluttertoast.showToast(
+                            msg: "Invalid",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (_) => const HomeScreen()));
                       },
                       child: const Text(
                         'Login',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:manomilan/services/firebase_auth_service.dart';
 import 'package:manomilan/utils/color_file.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -74,6 +75,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontSize: 16.0);
                         },
                         child: const Text("Update Profile"),
+                      ),
+                    ),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // AuthService().signOut();
+                          Fluttertoast.showToast(
+                              msg: "Signed Out",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        },
+                        child: const Text("SignOut"),
                       ),
                     ),
                     const Divider(
